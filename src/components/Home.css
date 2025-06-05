@@ -1,0 +1,350 @@
+.home-reveal {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at center, rgba(0, 31, 63, 0.2) 0%, rgba(0, 0, 0, 1) 70%);
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-content {
+  text-align: center;
+  z-index: 10;
+}
+
+.reveal-text {
+  font-family: "Orbitron", monospace;
+  font-size: 3rem;
+  background: linear-gradient(45deg, #001f3f, #ff4136, #ffdc00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.reveal-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  color: #cccccc;
+  letter-spacing: 0.1em;
+}
+
+.reveal-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.bg-element {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(255, 65, 54, 0.1), rgba(255, 220, 0, 0.1));
+}
+
+.bg-element-1 {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 10%;
+}
+
+.bg-element-2 {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  right: 15%;
+}
+
+.bg-element-3 {
+  width: 80px;
+  height: 80px;
+  bottom: 30%;
+  left: 20%;
+}
+
+.bg-element-4 {
+  width: 120px;
+  height: 120px;
+  bottom: 20%;
+  right: 10%;
+}
+
+.bg-element-5 {
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+}
+
+.home-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  background: radial-gradient(ellipse at center, rgba(0, 31, 63, 0.1) 0%, rgba(0, 0, 0, 1) 70%);
+  overflow: hidden;
+}
+
+.home-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 65, 54, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 220, 0, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.home-container {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-name {
+  font-family: "Orbitron", monospace;
+  font-size: 4rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #001f3f, #ff4136, #ffdc00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+}
+
+.hero-name::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4136, #ffdc00);
+  border-radius: 2px;
+}
+
+.hero-tagline {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
+  min-height: 2rem;
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+  color: #ff4136;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #aaaaaa;
+  margin-bottom: 3rem;
+  max-width: 500px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #001f3f, #ff4136);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #ffdc00;
+  color: #ffdc00;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ffdc00;
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-secondary:hover::before {
+  width: 100%;
+}
+
+.btn-secondary:hover {
+  color: #000000;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.image-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #001f3f;
+  position: relative;
+  z-index: 3;
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.image-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(255, 65, 54, 0.3), transparent 70%);
+  border-radius: 50%;
+  animation: glow 3s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.image-ring {
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  right: -30px;
+  bottom: -30px;
+  border: 2px solid rgba(255, 220, 0, 0.3);
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+  z-index: 2;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #666666;
+  cursor: none;
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  color: #ff4136;
+  transform: translateX(-50%) scale(1.1);
+}
+
+.scroll-text {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  color: #ff4136;
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-name {
+    font-size: 2.5rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+
+  .image-container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .reveal-text {
+    font-size: 2rem;
+  }
+}

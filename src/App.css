@@ -1,0 +1,448 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Creative Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #001f3f, #ff4136, #ffdc00);
+  transform-origin: 0%;
+  z-index: 10000;
+  box-shadow: 0 0 10px rgba(255, 65, 54, 0.5);
+}
+
+/* Floating Creative Elements */
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(1px);
+}
+
+.floating-element-1 {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #ff4136, #ffdc00);
+  top: 10%;
+  left: 10%;
+}
+
+.floating-element-2 {
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(45deg, #001f3f, #ff4136);
+  top: 20%;
+  right: 15%;
+}
+
+.floating-element-3 {
+  width: 25px;
+  height: 25px;
+  background: linear-gradient(45deg, #ffdc00, #001f3f);
+  top: 60%;
+  left: 5%;
+}
+
+.floating-element-4 {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(45deg, #ff4136, #001f3f);
+  top: 80%;
+  right: 10%;
+}
+
+.floating-element-5 {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #ffdc00, #ff4136);
+  top: 40%;
+  left: 80%;
+}
+
+.floating-element-6 {
+  width: 22px;
+  height: 22px;
+  background: linear-gradient(45deg, #001f3f, #ffdc00);
+  top: 70%;
+  right: 70%;
+}
+
+/* Enhanced Loading Screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, rgba(0, 31, 63, 0.3) 0%, rgba(0, 0, 0, 1) 70%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.loading-spinner-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.loading-spinner {
+  width: 80px;
+  height: 80px;
+  border: 3px solid transparent;
+  border-top: 3px solid #ff4136;
+  border-right: 3px solid #ffdc00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-ring {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(0, 31, 63, 0.3);
+  border-radius: 50%;
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+.loading-text {
+  font-family: "Orbitron", monospace;
+  font-size: 1.2rem;
+  color: #001f3f;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+/* Main Content */
+.main-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Styling */
+.section {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+/* Scroll Snap for smooth scrolling */
+.main-content {
+  scroll-snap-type: y mandatory;
+}
+
+/* Enhanced Utility Classes */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 3;
+}
+
+.title {
+  font-family: "Orbitron", monospace;
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #001f3f, #ff4136, #ffdc00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4136, #ffdc00);
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #cccccc;
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  position: relative;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #001f3f, #ff4136);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 65, 54, 0.3);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Enhanced Card Styles */
+.card {
+  background: rgba(0, 31, 63, 0.1);
+  border: 1px solid rgba(0, 31, 63, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 65, 54, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(0, 31, 63, 0.3);
+  border-color: #ff4136;
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Enhanced Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 220, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 220, 0, 0.6);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Creative Background Effects */
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 65, 54, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 220, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 31, 63, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-elements {
+    display: none;
+  }
+}
+
+/* Enhanced Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #001f3f, #ff4136);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff4136, #ffdc00);
+}
+
+/* Creative text selection */
+::selection {
+  background: rgba(255, 65, 54, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(255, 65, 54, 0.3);
+  color: #ffffff;
+}
